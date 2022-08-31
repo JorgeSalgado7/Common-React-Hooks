@@ -6,11 +6,10 @@
  * @param {String} name
  * @param {String} placeholder
  * @param {String} type
- * @param {Boolean} set
  */
 import React, { useState } from 'react'
 
-export const useField = (name='', placeholder='', type='', set=false) => {
+export const useField = (name = '', placeholder = '', type = 'text') => {
 
 	const [value, setValue] = useState('')
 
@@ -18,34 +17,10 @@ export const useField = (name='', placeholder='', type='', set=false) => {
 		setValue(event.target.value)
 	}
 
-	if (set && type !== '') {
-
-		return {
-			name,
-			placeholder,
-			type,
-			value,
-			setValue,
-			onChange,
-		}
-
-	}
-
-	if (type !== '') {
-
-		return {
-			name,
-			placeholder,
-			type,
-			value,
-			onChange,
-		}
-
-	}
-
 	return {
 		name,
 		placeholder,
+		type,
 		value,
 		onChange,
 	}
